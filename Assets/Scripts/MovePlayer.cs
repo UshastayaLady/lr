@@ -4,14 +4,14 @@ public class MovePlayer : MonoBehaviour
 {   
 
     [SerializeField] private float _speed;
-    [SerializeField] private float _mouserSensitivity;
     [SerializeField] private float _minView;
     [SerializeField] private float _maxView;
+    [SerializeField] private float _gravity;
 
     private CharacterController _player;    
     private float _verticalVelosity;
     private float _gorizontalVelosity;
-    private float _gravity;
+    
     private Transform _camera;
     private float _cameraRotationX;
 
