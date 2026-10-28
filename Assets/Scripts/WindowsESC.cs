@@ -6,20 +6,24 @@ public class WindowsESC : MonoBehaviour
     [SerializeField] private InterfaceController _windowECS;
     private bool _openWindows;
 
+    private void Start()
+    {
+        SetMenuOpen(_windowECS.gameObject.activeSelf);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            WorkESC();
+            SetMenuOpen(!_openWindows);
         }
     }
 
-
-    private void WorkESC()
+    private void SetMenuOpen(bool open)
     {
-        _openWindows = !_openWindows;
-        _plaer.enabled = !_plaer.enabled;
-        _windowECS.gameObject.SetActive(!_windowECS.gameObject.activeSelf);
+        _openWindows = open;
+        _windowECS.gameObject.SetActive(open);
+        _plaer.enabled = !open;
     }
 
 }
